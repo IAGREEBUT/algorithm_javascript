@@ -24,7 +24,7 @@ function reverse2(str) {
 
 function reverse3(str) {
     return str.split('')
-        .reduce((reversed, char) =>  // (last return of arrow function, str.split('') array 
+        .reduce((reversed, char) =>  // (last return of arrow function, str.split('') array
             char + reversed
             ,'') //initial value of arrow function
 }

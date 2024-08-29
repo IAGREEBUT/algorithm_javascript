@@ -7,6 +7,19 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+    const reversed = str.split('').reverse().join('')
+    return str === reversed
+}
 
-module.exports = palindrome;
+function palindrome2(str){
+    return str.split('').every((char,i) => { //return true if every element of array return true
+        return char === str[str.length - i - 1] //compared mirrored value ( 0 & last)
+    })
+
+}
+
+
+palindrome('aba')
+
+//module.exports = palindrome;

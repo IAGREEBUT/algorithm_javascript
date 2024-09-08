@@ -15,13 +15,13 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {
+function matrix2(n) {
 
     //setting new array
-    var arr = new Array(n);
+    const arr = []
 
-    for (var i = 0; i < arr.length; i++) {
-        arr[i] = new Array(n);
+    for(let i=0; i<n; i++){
+        arr.push([])
     }
 
 
@@ -58,6 +58,52 @@ function matrix(n) {
 
     }
     return arr
+}
+
+
+function matrix(n){
+    const results = []
+
+    for(let i=0; i<n; i++){
+        results.push([])
+    }
+
+
+    let counter = 1
+    //set boundary -> if we filled up (row/column) narrow it down! until start<=end
+    let startColumn = 0
+    let endColumn = n-1
+    let startRow = 0
+    let endRow = n-1
+
+    while(startColumn <= endColumn && startRow <= endRow){
+        //Top Row
+        for(let i=startColumn ; i<= endColumn ; i++){
+            results[startRow][i] = counter++
+        }
+        startRow++ //narrow down
+
+        //Right column
+        for(let i = startRow; i<=endRow; i++){
+            results[i][endColumn] = counter++
+        }
+        endColumn--
+
+        //Bottom Row
+        for(let i = endColumn ; i>=startColumn ; i--){
+            results[endRow][i] = counter++
+        }
+        endRow--
+
+        //Left Column
+        for(let i = endRow ; i>=startRow ; i--){
+            results[i][startColumn] = counter++
+        }
+        startColumn++
+    }
+
+
+    return results
 }
 
 matrix(3)

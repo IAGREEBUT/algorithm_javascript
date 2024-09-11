@@ -8,6 +8,20 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib2(n) { //exponential runtime (2^n)
+    if(n<2) return n
+    return fib(n-2) + fib(n-1)
+
+}
+
+function fib(n) {
+    let result = [0,1]
+    for(let i = 2; i<=n; i++){
+        result.push(result[i-2] + result[i-1])
+    }
+
+    return result[result.length-1]
+
+}
 
 module.exports = fib;

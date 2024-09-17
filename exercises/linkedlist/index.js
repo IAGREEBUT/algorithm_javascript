@@ -54,6 +54,11 @@ class LinkedList {
     clear(){
         this.head = null
     }
+
+    removeFirst(){
+        if(!this.head) return// if it is empty list, this.head.next is non-readable
+        this.head = this.head.next
+    }
 }
 
 module.exports = { Node, LinkedList };

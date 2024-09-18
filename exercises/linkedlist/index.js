@@ -111,6 +111,29 @@ class LinkedList {
         //
         // }
     }
+
+    getAt(index){
+        let counter = 0
+        let node = this.head
+        while(node){
+            if(counter === index){
+                return node;
+            }
+            counter++
+            node = node.next
+        }
+        return null
+
+        // if(!this.head) return null;
+        // let counter = 0
+        // let node = this.head
+        // if(index >= this.size()) return null
+        // while(counter++ < index){
+        //     node = node.next
+        // }
+        // return node
+    }
+
 }
 
 module.exports = { Node, LinkedList };

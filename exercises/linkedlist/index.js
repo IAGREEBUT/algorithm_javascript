@@ -59,6 +59,36 @@ class LinkedList {
         if(!this.head) return// if it is empty list, this.head.next is non-readable
         this.head = this.head.next
     }
+
+    removeLast(){
+
+        if(!this.head) return;
+
+        if(!this.head.next){
+            this.head = null
+            return;
+        }
+
+        // if(this.size() === 0 ) return
+        // else if(this.size() === 1) {
+        //     this.removeFirst()
+        //     return
+        // }
+        // else if(this.size() === 2 ){
+        //     this.head.next = null
+        //     return
+        // }
+
+        let prevNode = this.head;
+        let node = this.head.next;
+
+        while(node.next){
+            prevNode = node
+            node = node.next
+        }
+        prevNode.next = null
+
+    }
 }
 
 module.exports = { Node, LinkedList };

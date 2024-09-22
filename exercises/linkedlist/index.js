@@ -148,6 +148,38 @@ class LinkedList {
         prevNode.next = prevNode.next.next //if there prevNode.next is null, u cant access prevNode.next.next
 
     }
+
+    insertAt(data, index){
+
+        if(!this.head){
+            this.head = new Node(data)
+        }
+
+        if(index === 0){
+            this.head = new Node(data, this.head)
+        }
+
+        const previous = this.getAt(index -1) || this.getLast()
+        previous.next = new Node(data, previous.next)
+
+
+        // const node = new Node(data)
+        //
+        // if(index === 0 || !this.head){
+        //     node.next = this.head
+        //     this.head = node
+        //     return
+        // }
+        //
+        // const prevNode = this.getAt(index-1)
+        // if(!prevNode){
+        //     this.getLast().next = node
+        // }else{
+        //     node.next = this.getAt(index)
+        //     prevNode.next = node
+        // }
+
+    }
 }
 
 module.exports = { Node, LinkedList };

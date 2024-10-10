@@ -39,22 +39,25 @@ class LinkedList {
     }
 
     getFirst(){
-        return this.head
+        // return this.head
+        return this.getAt(0)
     }
 
     getLast(){
-        let node = this.head
-        while(node){
-            if(!node.next) return node
-            node = node.next
-        }
-        return node
+        // let node = this.head
+        // while(node){
+        //     if(!node.next) return node
+        //     node = node.next
+        // }
+        // return node
+        return this.getAt(this.size() - 1)
     }
 
     clear(){
         this.head = null
     }
 
+    //if we have removeAt(i) // we dont need removeFirst/last function
     removeFirst(){
         if(!this.head) return// if it is empty list, this.head.next is non-readable
         this.head = this.head.next
@@ -180,6 +183,9 @@ class LinkedList {
         // }
 
     }
+
+
+
 }
 
 module.exports = { Node, LinkedList };
